@@ -28,7 +28,8 @@ $kirby->set('tag', 'image', array(
     $caption = $tag->attr('caption');
     $srcset  = $tag->attr('srcset');
     $sizes   = $tag->attr('sizes');
-    $file    = $tag->file($url);
+    //try cached file access, else try to build and new file object
+    $file    = $tag->file($url) ?: new File($tag->page()->files(), $url);
 
     // use the file url if available and otherwise the given url
     $url = $file ? $file->url() : url($url);
