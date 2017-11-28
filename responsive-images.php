@@ -17,7 +17,8 @@ $kirby->set('tag', 'image', array(
     'popup',
     'rel',
     'srcset',
-    'sizes'
+    'sizes',
+    'itemprop'
   ),
   'html' => function($tag) {
 
@@ -106,7 +107,8 @@ $kirby->set('tag', 'image', array(
         'title'  => $title,
         'alt'    => $alt,
         'srcset' => $srcset,
-        'sizes'  => $sizes
+        'sizes'  => $sizes,
+        'itemprop' => $tag->attr('itemprop')
       ));
     };
 
